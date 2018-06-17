@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn" onclick="dec2bin()">转化为二进制</button>
+    <p id="result">运算结果</p>
+    <script>
+
+function dec2bin() {
+	var a = document.getElementById('dec-number').value;
+	if (/^\d+$/.test(a)){//正则表达式，用于判断是否为正整数。test检测一个字符串是否匹配某个模式。
+		document.getElementById('result').innerHTML = '转换结果为：' + (Number(a)).toString(2)
+	}
+	else{document.getElementById('result').innerHTML = '请输入正整数进行换算' }
+}
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简历</title>
+	<style type="text/css">
+		table{
+			border: auto;
+			border-collapse:collapse;
+		}
+		tr{
+			height: 6em;
+		}
+		td.aa{
+			background-color: #CCCCCC;
+			font-weight: 600;
+			width: 10%;
+			border-bottom: 1px solid #FFFFFF;
+		}
+		td.bb{
+			padding-left: 1em;
+			padding-top: 1em;
+			font-size: 1.1em;
+			border-right: 1px solid #CCCCCC;
+			border-bottom: 1px solid #CCCCCC;
+		}
+	</style>
+</head>
+<body>
+	<table width="100%">
+		<tr style="background-color:#666666;height: 4em;border-bottom: 1px solid #666;">
+			<td colspan="2"><span style="padding-left: 1.5em;font-size:1.5em;font-weight: 600;color: white;">简历</span></td>
+		</tr>
+		<tr>
+			<td align="center" class="aa">基本信息</td>
+			<td class="bb" valign="top"><b>姓名：</b>张三 &emsp;&emsp;<b>性别：</b>男 &emsp;&emsp;<b>应聘职位</b> Web前端工程师</td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="aa">联系方式</td>
+			<td class="bb" valign="top"><b>手机</b> 12312341234 &emsp;&emsp;<b>Email</b> joinefe@baidu.com &emsp;&emsp;<b>个人主页</b> Github</td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="aa">能力描述</td>
+			<td class="bb" valign="top"><b>技术能力</b>熟练掌握HTML,CSS,JavaScript<br><b>
+			综合能力</b>良好的沟通，主动积极，努力勤奋</td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="aa">教育经历</td>
+			<td class="bb" valign="top"><b>本科</b>百度前端技术学院小薇学院<br><b>
+			研究生</b>百度前端技术学院大斌学院</td>
+		</tr>
+		<tr>
+			<td width="20%" align="center" class="aa">项目经历</td>
+			<td class="bb" valign="top"><b>小度小度</b>作为前端工程师角色参与ABC组件的开发<br><b>
+			SAN Doc</b>作为文档工程师参与了SAN Doc编写<br></td>
+		</tr>
+		<tr id="ppp"></tr>
+	</table>
+	<button onclick="aihao()" style="position: absolute;top: 30px;right: 30px">兴趣爱好</button>
+	<script>
+		function aihao(){
+			var a = '<td width="20%" align="center" class="aa">兴趣爱好</td><td class="bb" valign="top"><p>看书，打羽毛球，听音乐，看电影，还有漂亮姑娘！哈哈</td>'
+			document.getElementById('ppp').innerHTML=a
+		}
+		window.onload = function(){
+			var tim = new Date().getHours();
+			if (tim < 12) {alert('Goog Moring')}
+			else if (tim < 18) {alert('Good Afternoon')}
+			else{alert('Good Night')}
+		}
+	</script>
+</body>
+</html>

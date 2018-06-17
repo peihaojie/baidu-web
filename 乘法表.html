@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>游戏2</title>
+	<style type="text/css">
+		table,tr,td{
+			border-collapse:collapse;border: 1px solid #ABABAB;
+			text-align: center;margin: auto;
+		}
+		tr,td{width: 30px;height: 30px}
+	</style>
+</head>
+<body>
+	<table>
+	<script>
+		for (var m = 1; m < 10; m++) {
+			document.write('<tr>')
+			for (var n = 1; n < 10; n++) {
+				document.write('<td>' + m*n + '</td>')
+			}
+			document.write('</tr>')
+		}
+	</script>
+	</table>
+</body>
+</html>

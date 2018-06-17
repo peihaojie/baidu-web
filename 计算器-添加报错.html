@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="first-number" placeholder="第一个数字">
+    <input id="second-number" placeholder="第二个数字">
+    <button id="add-btn" onclick="jia()">加</button>
+    <button id="minus-btn" onclick="jian()">减</button>
+    <button id="times-btn" onclick="cheng()">乘</button>
+    <button id="divide-btn" onclick="chu()">除</button>
+    <p id="result">运算结果</p>
+    <script>
+		function jia(){
+			var a = document.getElementById('first-number').value;
+			var b = document.getElementById('second-number').value;
+			var d = Number(a);var e = Number(b);
+			var c = d + e
+			document.getElementById('result').innerHTML = '两者之和为：' + c
+			try{if (isNaN(a)||isNaN(b)) throw '请输入数字'}
+			catch(err){document.getElementById('result').innerHTML = '错误：' + err + '。'}
+		}
+		function jian(){
+			var a = document.getElementById('first-number').value;
+			var b = document.getElementById('second-number').value;
+			var d = Number(a);var e = Number(b);
+			var c = d - e
+			document.getElementById('result').innerHTML = '两者之差为：' + c
+			try{if (isNaN(a)||isNaN(b)) throw '请输入数字'}
+			catch(err){document.getElementById('result').innerHTML = '错误：' + err + '。'}
+		}
+		function cheng(){
+			var a = document.getElementById('first-number').value;
+			var b = document.getElementById('second-number').value;
+			var d = Number(a);var e = Number(b);
+			var c = d * e
+			document.getElementById('result').innerHTML = '两者之积为：' + c
+			try{if (isNaN(a)||isNaN(b)) throw '请输入数字'}
+			catch(err){document.getElementById('result').innerHTML = '错误：' + err + '。'}
+		}
+		function chu(){
+			var a = document.getElementById('first-number').value;
+			var b = document.getElementById('second-number').value;
+			var d = Number(a);var e = Number(b);
+			var c = d / e
+			document.getElementById('result').innerHTML = '两者之商为：' + c
+			try{if (isNaN(a)||isNaN(b)) throw '请输入数字'}
+			catch(err){document.getElementById('result').innerHTML = '错误：' + err + '。'}
+			try{if(b==0) throw '除数不可为零'}
+			catch(err){document.getElementById('result').innerHTML = '错误：' + err + '。'}
+		}
+    </script>
+</body>
+</html>
