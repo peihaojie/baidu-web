@@ -51,9 +51,10 @@
         </div>      
     </div>
     <script>
+       // window.onload() = function()
 
     function getAllListItem() {
-    	var li = document.querySelectorAll(li);
+    	var li = document.querySelectorAll('li');
     	for (var i = 0; i < li.length; i++) {
     		var text = li[i].innerHTML;
     		alert(text)
@@ -62,8 +63,8 @@
     }
 
     function findAllHtmlSpanInOneSection() {
-    	var li   = document.querySelectorAll(li)
-    	var span = document.querySelectorAll(span)
+    	var li   = document.querySelectorAll('li')
+    	var span = document.querySelectorAll('span')
     	for (var i = 0; i < span.length; i++) {
     		if (span[i].innerHTML == 'HTML') {
     			alert(span[i].parentNode.innerHTML)
@@ -73,7 +74,7 @@
     	// 返回某个section下所有span中内容为HTML的span标签
     }
     function getActiveLinkContent() {
-    	var active = document.querySelectorAll(.active)
+    	var active = document.querySelectorAll('a.active')
     	for (var i = 0; i < active.length; i++) {
     		alert(active[i].firstChild.nodeValue)
     	}
