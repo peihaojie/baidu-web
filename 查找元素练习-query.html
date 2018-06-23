@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <style type="text/css">
+        #news-top,#news-normal,#input{
+            border: 1px solid #828282;border-radius: 5px;
+            display: inline-block;padding: 20px;
+            vertical-align: top;
+        }
+        button{
+            width: 180px;
+        }
+    </style>
+</head>
+<body>        
+    <div id="wrapper">
+        <div id="news-top" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                    <button onclick="findAllHtmlSpanInOneSection()">内容为HTML的span</button><br><br>
+                    <button onclick="getActiveLinkContent()">class为active的文字</button>
+                    <ul>
+                        <li><span>HTML</span><a href="">Some Link1</a></li>
+                        <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                        <li><span>CSS</span><a href="">Some Link3</a></li>
+                        <li><span>JS</span><a href="">Some Link4</a></li>
+                    </ul>
+                </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="news-normal" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                    <button onclick="findAllHtmlSpanInOneSection()">内容为HTML的span</button><br><br>
+                    <button onclick="getActiveLinkContent()">class为active的文字</button>
+                    <ul>
+                        <li><span>HTML</span><a href="">Some Link1</a></li>
+                        <li><span>HTML</span><a href="">Some Link2</a></li>
+                        <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                        <li><span>CSS</span><a href="">Some Link4</a></li>
+                    </ul>
+                </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="input">
+            <button onclick="getAllListItem()">所有li标签</button>      
+        </div>      
+    </div>
+    <script>
+
+    function getAllListItem() {
+    	var li = document.querySelectorAll(li);
+    	for (var i = 0; i < li.length; i++) {
+    		var text = li[i].innerHTML;
+    		alert(text)
+    	}
+        // 返回页面中所有li标签
+    }
+
+    function findAllHtmlSpanInOneSection() {
+    	var li   = document.querySelectorAll(li)
+    	var span = document.querySelectorAll(span)
+    	for (var i = 0; i < span.length; i++) {
+    		if (span[i].innerHTML == 'HTML') {
+    			alert(span[i].parentNode.innerHTML)
+    		}
+    		
+    	}
+    	// 返回某个section下所有span中内容为HTML的span标签
+    }
+    function getActiveLinkContent() {
+    	var active = document.querySelectorAll(.active)
+    	for (var i = 0; i < active.length; i++) {
+    		alert(active[i].firstChild.nodeValue)
+    	}
+        // 返回某个section下，class为active的链接中包含的文字内容
+    }
+
+    </script>
+</body>
+</html>
