@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>list</title>
+</head>
+<body>
+	<input id="name" type="text" onkeypress="a()" onkeydown="b()">    
+	<button id="submit-btn">Submit</button>
+	<script type="text/javascript">
+		//addEventListener之前不可以使用变量，我也不知道为什么
+		document.getElementById('submit-btn').addEventListener('click',function(){
+			var name = document.getElementById('name').value
+			alert(name)
+		})
+		//这里创建两个函数分别对应回车和ESC的键盘码，因为onkeypress不支持ESC所以又添加了onkeydown方法
+		function a(){
+			if (event.keyCode == 13) document.getElementById('submit-btn').click()
+		}
+		function b(){
+			if (event.keyCode == 27) document.getElementById('name').value = ''
+		}
+	</script>
+</body>
+</html>

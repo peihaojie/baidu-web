@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="obj" style="width:300px;height:300px;background:#000;opacity:1"></div>
+	<button id="btn" onclick = 'ick()'>淡出</button>
+	<script type="text/javascript">
+		var obj = document.getElementById('obj');
+		var btn = document.getElementById('btn');
+		function out(){
+				//调整透明度
+				var style = obj.style.opacity;
+				var style1 = Number(style);
+				obj.style.opacity = style - 0.1;
+				var newStyle = obj.style.opacity;
+				if (style1 == 0) {
+					btn.disabled = false;
+					btn.innerHTML = '淡入';
+					window.clearInterval(funout);
+				}
+		}
+		function inn(){
+				//将透明度的数据类型转换为数值 
+				var style = obj.style.opacity;
+				var style1 = Number(style);
+				//变换透明度
+				obj.style.opacity = style1 + 0.1;
+				var newStyle = obj.style.opacity;
+				//判断新透明度是否符合停止循环
+				if (newStyle == 1) {
+					//按钮可点击
+					btn.disabled = false;
+					//按钮文字变换
+					btn.innerHTML = '淡出';
+					//停止循环
+					window.clearInterval(funinn);
+				}
+		}
+		function ick(){
+			var style = obj.style.opacity;
+			var nu = Number(style);
+			if (nu == 1){
+				//禁止点击
+				btn.disabled = true;
+				//开始循环
+				funout = setInterval(out,100);
+			}else{
+				btn.disabled = true;
+				funinn = setInterval(inn,100);
+			}
+		}	
+	</script>
+</body>
+</html>
