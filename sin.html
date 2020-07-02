@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>水波效果</title>
+	<style type="text/css" media="screen">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		canvas {
+			margin: 20px;
+			/*border: 1px solid #000;*/
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" height="1000" width="1000"></canvas>
+	<p id="id">
+		
+	</p>
+	<script type="text/javascript" charset="utf-8" async defer>
+		window.xOffset = 0 // 水平位移
+		window.nowRange = 1000
+		window.range = 0
+		window.onload = function() {
+			let canvas = document.getElementById('canvas')
+			drawSin()
+		}
+
+		function drawSin() {
+
+			if (window.range < window.nowRange) {
+				window.nowRange -= 5;
+			}
+
+
+			window.xOffset += 1
+			let ctx = canvas.getContext('2d');
+			let canvasWidth = 1000;
+			let canvasHeight = 1000;
+			const startX = 0;
+			const waveWidth = 0.02; // 波浪宽度,数越小越宽
+			const waveHeight = 8; // 波浪高度,数越大越高
+			ctx.clearRect(0, 0, canvasWidth, canvasHeight); // 清除
+			// 画圆
+			ctx.beginPath();
+			ctx.arc(canvasWidth/2, canvasHeight/2, canvasHeight/2, 0, 2*Math.PI)
+			ctx.stroke();
+			ctx.clip();
+			// 波浪
+			ctx.beginPath();
+			// 渐变
+			var my_gradient=ctx.createLinearGradient(0,0,0,canvasHeight);
+			my_gradient.addColorStop(0,"#93b7e3");
+			my_gradient.addColorStop(1,"#edafda");
+			ctx.fillStyle=my_gradient;
+			// 画波浪
+			for (let x = startX; x < startX + canvasWidth; x += 20 / canvasWidth) {
+				const y = waveHeight * Math.sin((startX + x) * waveWidth + window.xOffset);
+				ctx.lineTo(x, window.nowRange + y);
+			}
+			ctx.lineTo(canvasWidth, canvasHeight);
+			ctx.lineTo(startX, canvasHeight);
+			// ctx.stroke();
+			ctx.fill();
+
+			// 波浪
+			ctx.beginPath();
+			// 渐变
+			var my_gradient=ctx.createLinearGradient(0,0,0,canvasHeight);
+			my_gradient.addColorStop(0,"#93b7e399");
+			my_gradient.addColorStop(1,"#edafda99");
+			ctx.fillStyle=my_gradient;
+			// 画波浪
+			for (let x = startX+1; x < startX + canvasWidth; x += 20 / canvasWidth) {
+				const y = waveHeight * Math.sin((startX + x) * waveWidth + window.xOffset);
+				ctx.lineTo(x, window.nowRange + y);
+			}
+			ctx.lineTo(canvasWidth, canvasHeight);
+			ctx.lineTo(startX, canvasHeight);
+			// ctx.stroke();
+			ctx.fill();
+			requestAnimationFrame(drawSin)
+		};
+	</script>
+</body>
+</html>
